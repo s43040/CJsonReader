@@ -26,14 +26,9 @@ int main() {
         return 1; 
     } 
     cJSON *n = cJSON_DetachItemFromObject(json, "EVCar");
-    //printf("%p", (void *) name);
-    // access the JSON data 
-    // stops working when [] are added
-    
-    cJSON *realName = cJSON_GetArrayItem(n, 10);
-    cJSON *name = cJSON_GetObjectItemCaseSensitive(realName, "Type");
-    //printf("%p", (void *) realName);
-    //printf("%s", realName->valuestring);
+    cJSON *newName = cJSON_GetArrayItem(n, 10);
+    cJSON *name = cJSON_GetObjectItemCaseSensitive(newName, "Type");
+    //get the pointer for the string
     
     if (cJSON_IsString(name) && (name->valuestring != NULL)) { 
         printf("Name: %s\n", name->valuestring); 
